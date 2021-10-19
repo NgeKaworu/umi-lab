@@ -3,6 +3,9 @@
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
+    "build-docker": "docker image build --tag umi-lab:docker .",
+    "rm-docker": "docker image remove umi-lab:docker",
+    "start-docker": "docker container run --rm --detach --publish 8080:8000 --name umi-lab umi-lab:docker",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",

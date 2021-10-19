@@ -2,8 +2,6 @@ FROM node:lts-alpine
 
 EXPOSE 8000
 
-USER node
-
 RUN mkdir -p /home/node/app && \
     apk add --update --no-cache git openssh
 
@@ -16,4 +14,4 @@ COPY . .
 
 ENV BRANCH = "master"
 
-CMD "git fetch && git checkout $BRANCH && git pull && npm install && npm start"
+CMD ["npm", "start"]
